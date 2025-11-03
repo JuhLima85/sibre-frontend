@@ -1,0 +1,109 @@
+h1.mt-2 {
+    color: #2f86e2;    
+  }
+  
+  .breadcrumb {
+    background-color: #b2d0f7;
+    color: rgb(59, 59, 59);
+  }
+  
+  .pai {
+    background-color: #FCFCFC;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: calc(100vh - 500px); /* 🔹 ajusta dinamicamente pro header/footer */
+    overflow: hidden; /* remove rolagem desnecessária */
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+  .titulo-home {
+    color: #0051B4;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0 0 15px 0; /* 🔹 remove margem de cima e mantém só embaixo */
+  }  
+  
+  /* 🔹 Imagem logo */
+  .imagem-logo {
+    max-width: 500px;
+    width: 80%;
+    height: auto;
+    z-index: 1;
+  }
+
+  .home-container {
+    background-color: #f4f4f9;
+    padding: 40px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .titulo-home {
+    font-size: 2rem;
+    color: #2f86e2;
+  }
+  
+  .subtitulo-home {
+    font-size: 1.1rem;
+    color: #6e6e6e;
+  }
+  
+  .pai {
+    margin-top: 30px;
+  }
+  
+  .imagem-logo {
+    width: 180px;
+    height: auto;
+    border-radius: 50%;
+    background-color: #ffffff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .slogan {
+    font-size: 1rem;
+    color: #666666;
+  }
+  
+  .infos {
+    font-size: 0.95rem;
+    color: #555;
+  }
+ 
+  /* 🔹 Responsividade para notebooks (ex.: 13" a 15") */
+@media (max-width: 1366px) and (min-width: 1025px) {
+    .titulo-home {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+  
+    .imagem-logo {
+      max-width: 320px; /* ajuste ideal pra notebook */
+    }
+  
+    .pai {
+      min-height: calc(100vh - 420px); /* reduz levemente o espaço vertical */
+    }
+  }  
+  
+  /* 🔹 Responsividade */
+  @media (max-width: 768px) {
+    .titulo-home {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+  
+    .imagem-logo {
+      max-width: 300px;
+    }
+  }
+  

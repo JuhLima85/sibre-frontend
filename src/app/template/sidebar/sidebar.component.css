@@ -1,0 +1,31 @@
+.sb-sidenav {    
+  background-color:#b2d0f7;
+}
+
+.sb-sidenav-footer {
+  background-color: #6CAAFC;
+  color: #0051B4;
+  font-size: 13px;
+  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  padding-left: 20px; 
+}
+
+.sb-sidenav-footer .footer-link {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sb-sidenav-footer .sb-nav-link-icon {
+  margin-right: 6px;
+  font-size: 13px;
+}
+
+.sb-sidenav-footer .footer-link:hover {
+  color: #003e8a;
+}

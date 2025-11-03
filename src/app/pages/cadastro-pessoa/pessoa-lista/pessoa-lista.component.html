@@ -1,0 +1,113 @@
+<h1 class="mt-2" style="color:#2f86e2">Membros</h1>
+<ol class="breadcrumb mb-4" style="background-color:#b2d0f7">
+    <li class="breadcrumb-item active" style="color:#6e6e6e">Novo Cadastro</li>
+</ol>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" role="aler" *ngIf="mensagemSucesso">
+                {{ mensagemSucesso }}
+            </div>
+            <div class="alert alert-danger" role="aler" *ngIf="mensagemErro">
+                {{ mensagemErro }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="row-buttons mb-3">
+            <button class="btn" [ngClass]="{
+                'btn-success': authService.hasRole('admin', 'gestor'),
+                'btn-secondary': !authService.hasRole('admin', 'gestor')
+            }" [disabled]="!authService.hasRole('admin', 'gestor')" [attr.title]="
+                authService.hasRole('admin')
+                ? 'Cadastrar novo usuário'
+                : 'Apenas administradores e gestores podem cadastrar'
+            " routerLink="/pessoa/form">
+                        <i class="fa" [ngClass]="{
+                'fa-plus': authService.hasRole('admin', 'gestor'),
+                'fa-lock': !authService.hasRole('admin', 'gestor')
+                }"></i>
+                        Novo Cadastro
+            </button>
+            <button *ngIf="pessoas && pessoas.length > 0" class="btn btn-primary ml-2" (click)="abrirModal()">
+                <i class="fa fa-file-pdf"></i> Gerar Relatório
+            </button>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <tr style="color:#555454">
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Membro</th>
+                        <th>Data Nacimento</th>
+                        <th>Ações</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pessoa of pessoas" [ngClass]="{ 'nao-membro': !pessoa.membro }">
+                        <td>{{ pessoa.nome }}</td>
+                        <td>{{ pessoa.fone }}</td>
+                        <td>{{ pessoa.membro ? 'Sim' : 'Não' }}</td>
+                        <td>{{ pessoa.dataNascimento }}</td>
+                        <td>
+                        <td>
+                            <button class="btn" [ngClass]="{
+                                    'btn-primary': authService.hasRole('admin', 'gestor'),
+                                    'btn-secondary': !authService.hasRole('admin', 'gestor')
+                                  }" [disabled]="!authService.hasRole('admin', 'gestor')" [attr.title]="
+                                    authService.hasRole('admin', 'gestor')
+                                      ? 'Editar registro'
+                                      : 'Apenas administradores ou gestores podem editar'
+                                  " [routerLink]="['/pessoa/form', pessoa.id]">
+                                <i class="fa" [ngClass]="{
+                                      'fa-edit': authService.hasRole('admin', 'gestor'),
+                                      'fa-lock': !authService.hasRole('admin', 'gestor')
+                                    }"></i>
+                            </button>
+                                                        <button class="btn ml-2" [ngClass]="{
+                                'btn-danger': authService.hasRole('admin', 'gestor'),
+                                'btn-secondary': !authService.hasRole('admin', 'gestor')
+                            }" [disabled]="!authService.hasRole('admin', 'gestor')" [attr.title]="
+                                authService.hasRole('admin', 'gestor')
+                                ? 'Excluir registro'
+                                : 'Apenas administradores ou gestores podem excluir'
+                            " (click)="authService.hasRole('admin', 'gestor') && exibirModalDelet(pessoa)" data-toggle="modal"
+                                                            data-target="#modalDelecao">
+                                                            <i class="fa" [ngClass]="{
+                                'fa-trash': authService.hasRole('admin', 'gestor'),
+                                'fa-lock': !authService.hasRole('admin', 'gestor')
+                                }"></i>
+                            </button>
+                            <button class="btn btn-custom-blue ml-2" (click)="carregarHistorico(pessoa.id)"
+                                title="Histórico">
+                                <i class="fa fa-file-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="modalDelecao" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Confirmação</h4>
+                </div>
+                <div class="modal-body" *ngIf="pessoaSelecionada">
+                    Tem certeza que deseja excluir o cadastro {{ pessoaSelecionada.nome }} ?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" (click)="deletarCadastro()" data-dismiss="modal">Sim</button>
+                    <button class="btn btn-danger" data-dismiss="modal">Não</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-relatorio-modal (gerar)="gerarRelatorio($event)"></app-relatorio-modal>
