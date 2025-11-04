@@ -1,6 +1,6 @@
 # netlify.toml
 [build]  
-  command = "npm install --force && ng build"
+  command = "npm install --force && npm run build -- --configuration production"
   publish = "dist/sibre-app"
 
 # Configuração das regras de redirecionamento
