@@ -1,0 +1,28 @@
+/* ===== Tabela Responsiva ===== */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+  
+  /* ===== Pequenos ajustes visuais ===== */
+  .table thead th,
+  .table tbody td {
+    vertical-align: middle;
+    text-align: left;
+  }
+  
+  @media (max-width: 768px) {
+    .table thead th,
+    .table tbody td {
+      font-size: 0.9rem;
+      padding: 0.4rem;
+    }
+  
+    .row-buttons .btn {
+      font-size: 0.85rem;
+      padding: 0.25rem 0.5rem;
+    }
+  }
+  

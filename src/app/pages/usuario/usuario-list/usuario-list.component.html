@@ -1,107 +1,109 @@
-<h1 class="mt-2" style="color:#2f86e2">Usuários</h1>
+    <h1 class="mt-2" style="color:#2f86e2">Usuários</h1>
 <ol class="breadcrumb mb-4" style="background-color:#b2d0f7">
-    <li class="breadcrumb-item active" style="color:#6e6e6e">Lista de Usuários</li>
+  <li class="breadcrumb-item active" style="color:#6e6e6e">Lista de Usuários</li>
 </ol>
+
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="alert alert-success" role="aler" *ngIf="mensagemSucesso">
-                {{ mensagemSucesso }}
-            </div>
-            <div class="alert alert-danger" role="aler" *ngIf="mensagemErro">
-                {{ mensagemErro }}
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-success" role="aler" *ngIf="mensagemSucesso">
+        {{ mensagemSucesso }}
+      </div>
+      <div class="alert alert-danger" role="aler" *ngIf="mensagemErro">
+        {{ mensagemErro }}
+      </div>
     </div>
-    <div class="row">
-        <div class="row-buttons mb-3">
-            <button class="btn" [ngClass]="{
-                'btn-success': authService.hasRole('admin'),
-                'btn-secondary': !authService.hasRole('admin')
-              }" [disabled]="!authService.hasRole('admin')" [attr.title]="
-                authService.hasRole('admin')
-                  ? 'Cadastrar novo usuário'
-                  : 'Apenas administradores podem cadastrar'
-              " routerLink="/usuario/form">
-                <i class="fa" [ngClass]="{
-                  'fa-plus': authService.hasRole('admin'),
-                  'fa-lock': !authService.hasRole('admin')
-                }"></i>
-                Novo Cadastro
-            </button>
-        </div>
+  </div>
 
+  <div class="row">
+    <div class="row-buttons mb-3">
+      <button class="btn" [ngClass]="{
+          'btn-success': authService.hasRole('admin'),
+          'btn-secondary': !authService.hasRole('admin')
+        }" [disabled]="!authService.hasRole('admin')" [attr.title]="
+          authService.hasRole('admin')
+            ? 'Cadastrar novo usuário'
+            : 'Apenas administradores podem cadastrar'
+        " routerLink="/usuario/form">
+        <i class="fa" [ngClass]="{
+            'fa-plus': authService.hasRole('admin'),
+            'fa-lock': !authService.hasRole('admin')
+          }"></i>
+        Novo Cadastro
+      </button>
     </div>
-    <br />
-    <div class="row">
-        <div class="col-md-12">
-            <table class="table table-condensed table-hover">
-                <thead>
-                    <tr style="color:#555454">
-                        <th>Nome</th>
-                        <th>Login</th>
-                        <th>E-mail</th>
-                        <th>Perfil</th>
-                        <th>Ações</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let usuario of usuarios" [ngClass]="{ 'nao-membro': !usuario.membro }">
-                        <td>{{ usuario.firstName }} {{ usuario.lastName }}</td>
-                        <td>{{ usuario.username }}</td>
-                        <td>{{ usuario.email }}</td>
-                        <td>
-                            <ng-container *ngFor="let role of usuario.roles">
-                                <ng-container *ngIf="role !== 'default-roles-sibre'">
-                                    {{ role }}
-                                </ng-container>
-                            </ng-container>
-                        </td>
+  </div>
 
-                        <td>
-                            <button class="btn ml-2" [ngClass]="{
-                                'btn-danger': authService.hasRole('admin') && !botaoDesabilitado(usuario),
-                                'btn-secondary': !authService.hasRole('admin') || botaoDesabilitado(usuario)
-                              }" [disabled]="!authService.hasRole('admin') || botaoDesabilitado(usuario)"
-                                (click)="exibirModalDelet(usuario)" [attr.title]="
-                                !authService.hasRole('admin')
-                                  ? 'Apenas administradores podem excluir'
-                                  : botaoDesabilitado(usuario)
-                                  ? 'Exclusão não permitida'
-                                  : 'Excluir'
-                              ">
-                                <i class="fa" [ngClass]="{
-                                  'fa-trash': authService.hasRole('admin') && !botaoDesabilitado(usuario),
-                                  'fa-lock': !authService.hasRole('admin') || botaoDesabilitado(usuario)
-                                }"></i>
-                            </button>
-                        </td>
+  <br />
 
-
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div #modalDelecao class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4>Confirmação</h4>
-                    </div>
-                    <div class="modal-body" *ngIf="usuarioSelecionado">
-                        Tem certeza que deseja excluir o cadastro {{ usuarioSelecionado.username }}?
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-success" (click)="deletarCadastro()">
-                            Sim
-                        </button>
-                        <button type="button" class="btn btn-danger" (click)="modalInstance?.hide()">
-                            Não
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-md-12">
+      <!-- ✅ Envolvendo a tabela -->
+      <div class="table-responsive">
+        <table class="table table-condensed table-hover">
+          <thead>
+            <tr style="color:#555454">
+              <th>Nome</th>
+              <th>Login</th>
+              <th>E-mail</th>
+              <th>Perfil</th>
+              <th>Ações</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of usuarios" [ngClass]="{ 'nao-membro': !usuario.membro }">
+              <td>{{ usuario.firstName }} {{ usuario.lastName }}</td>
+              <td>{{ usuario.username }}</td>
+              <td>{{ usuario.email }}</td>
+              <td>
+                <ng-container *ngFor="let role of usuario.roles">
+                  <ng-container *ngIf="role !== 'default-roles-sibre'">
+                    {{ role }}
+                  </ng-container>
+                </ng-container>
+              </td>
+              <td>
+                <button class="btn ml-2" [ngClass]="{
+                    'btn-danger': authService.hasRole('admin') && !botaoDesabilitado(usuario),
+                    'btn-secondary': !authService.hasRole('admin') || botaoDesabilitado(usuario)
+                  }"
+                  [disabled]="!authService.hasRole('admin') || botaoDesabilitado(usuario)"
+                  (click)="exibirModalDelet(usuario)" [attr.title]="
+                    !authService.hasRole('admin')
+                      ? 'Apenas administradores podem excluir'
+                      : botaoDesabilitado(usuario)
+                      ? 'Exclusão não permitida'
+                      : 'Excluir'
+                  ">
+                  <i class="fa" [ngClass]="{
+                      'fa-trash': authService.hasRole('admin') && !botaoDesabilitado(usuario),
+                      'fa-lock': !authService.hasRole('admin') || botaoDesabilitado(usuario)
+                    }"></i>
+                </button>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
+
+  <div #modalDelecao class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>Confirmação</h4>
+        </div>
+        <div class="modal-body" *ngIf="usuarioSelecionado">
+          Tem certeza que deseja excluir o cadastro {{ usuarioSelecionado.username }}?
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success" (click)="deletarCadastro()">Sim</button>
+          <button type="button" class="btn btn-danger" (click)="modalInstance?.hide()">Não</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,3 +5,91 @@
 .sb-topnav {
     background-color: pink;
 }
+
+/* ===== Espaçamento e responsividade refinados ===== */
+
+/* Espaço padrão entre blocos de input */
+.form-group,
+.row.mb-3 {
+  margin-bottom: 0.6rem;
+}
+
+/* Inputs */
+.form-control-user {
+  font-size: 0.95rem;
+  padding: 0.45rem 0.7rem;
+  line-height: 1.2;
+}
+
+/* Labels */
+.form-label {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Cria espaço entre colunas quando elas empilham */
+.row > [class*='col-'] {
+  margin-bottom: 0.6rem;
+}
+
+/* Ajustes gerais para telas menores */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+  }
+
+  .row > [class*='col-'] {
+    margin-bottom: 0.7rem; /* garante espaço entre inputs empilhados */
+  }
+
+  .form-group,
+  .row.mb-3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .form-control-user {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .form-label {
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .d-flex.justify-content-start {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.5rem 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Telas muito pequenas (ex: iPhone SE) */
+@media (max-width: 480px) {
+  .form-group,
+  .row.mb-3 {
+    margin-bottom: 0.45rem;
+  }
+
+  .row > [class*='col-'] {
+    margin-bottom: 0.6rem;
+  }
+
+  .form-control-user {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.55rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 0.45rem;
+  }
+}
+
+

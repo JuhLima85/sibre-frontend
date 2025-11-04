@@ -17,6 +17,33 @@ tbody tr.nao-membro {
   background-color: rgba(178, 208, 247, 0.45);
 }
 
+/* ====== Tabelas responsivas ====== */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;        /* permite rolagem horizontal */
+  -webkit-overflow-scrolling: touch; /* rolagem suave em mobile */
+  white-space: nowrap;     /* evita quebra de linhas */
+}
+
+.table thead th,
+.table tbody td {
+  vertical-align: middle;
+  text-align: left;
+}
+
+/* Em telas menores, diminui um pouco o padding */
+@media (max-width: 768px) {
+  .table thead th,
+  .table tbody td {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+  
+  .row-buttons .btn {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
 
 
 

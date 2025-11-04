@@ -2,37 +2,84 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #FCFCFC; /* fundo branco suave */
+    background-color: #FCFCFC; 
   }
   
   main {
     flex: 1;
     padding-bottom: 60px; 
   }   
-   
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 215px;
+  width: calc(100% - 220px);
+  z-index: 100;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #edf2fa !important;
+  padding: 0 15px;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+footer .text-muted,
+footer .whats-link span {
+  color: #6c757d !important;
+  font-size: 13px;
+}
+
+footer .whats-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+footer .whats-link i {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
   footer {
-    position: fixed;
-    bottom: 0;
-    left: 215px;
-    width: calc(100% - 220px);    
-    z-index: 100;
-    height: 15px;
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    font-size: 15px;   
+    left: 0;
+    width: 100%;
+    justify-content: space-between;
+    padding: 6px 14px 6px 10px; 
+  }
+
+  .nome-igreja {
+    font-size: 12px;
+    visibility: hidden;
+    position: relative;
+    margin-left: 20px;
+  }
+
+  .nome-igreja::before {
+    content: "Segunda Igreja Batista Recanto das Emas - 2025";
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
   
-  footer.py-4 {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    height: 43px !important; 
-    background-color: #edf2fa!important; 
+  .whats-link {
+    display: none !important;
+  }
+
+  .suporte-texto {
+    visibility: hidden;
+    position: relative;
   }
   
-  footer .text-muted,
-  footer .whats-link span {
-    color: #6c757d !important;
-    font-size: 13px;
+  .suporte-texto::before {
+    content: "Suporte";
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
-  
+}

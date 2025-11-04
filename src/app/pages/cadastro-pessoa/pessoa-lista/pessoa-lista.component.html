@@ -37,62 +37,41 @@
     <br />
     <div class="row">
         <div class="col-md-12">
+          <div class="table-responsive">
             <table class="table table-condensed table-hover">
-                <thead>
-                    <tr style="color:#555454">
-                        <th>Nome</th>
-                        <th>Telefone</th>
-                        <th>Membro</th>
-                        <th>Data Nacimento</th>
-                        <th>Ações</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let pessoa of pessoas" [ngClass]="{ 'nao-membro': !pessoa.membro }">
-                        <td>{{ pessoa.nome }}</td>
-                        <td>{{ pessoa.fone }}</td>
-                        <td>{{ pessoa.membro ? 'Sim' : 'Não' }}</td>
-                        <td>{{ pessoa.dataNascimento }}</td>
-                        <td>
-                        <td>
-                            <button class="btn" [ngClass]="{
-                                    'btn-primary': authService.hasRole('admin', 'gestor'),
-                                    'btn-secondary': !authService.hasRole('admin', 'gestor')
-                                  }" [disabled]="!authService.hasRole('admin', 'gestor')" [attr.title]="
-                                    authService.hasRole('admin', 'gestor')
-                                      ? 'Editar registro'
-                                      : 'Apenas administradores ou gestores podem editar'
-                                  " [routerLink]="['/pessoa/form', pessoa.id]">
-                                <i class="fa" [ngClass]="{
-                                      'fa-edit': authService.hasRole('admin', 'gestor'),
-                                      'fa-lock': !authService.hasRole('admin', 'gestor')
-                                    }"></i>
-                            </button>
-                                                        <button class="btn ml-2" [ngClass]="{
-                                'btn-danger': authService.hasRole('admin', 'gestor'),
-                                'btn-secondary': !authService.hasRole('admin', 'gestor')
-                            }" [disabled]="!authService.hasRole('admin', 'gestor')" [attr.title]="
-                                authService.hasRole('admin', 'gestor')
-                                ? 'Excluir registro'
-                                : 'Apenas administradores ou gestores podem excluir'
-                            " (click)="authService.hasRole('admin', 'gestor') && exibirModalDelet(pessoa)" data-toggle="modal"
-                                                            data-target="#modalDelecao">
-                                                            <i class="fa" [ngClass]="{
-                                'fa-trash': authService.hasRole('admin', 'gestor'),
-                                'fa-lock': !authService.hasRole('admin', 'gestor')
-                                }"></i>
-                            </button>
-                            <button class="btn btn-custom-blue ml-2" (click)="carregarHistorico(pessoa.id)"
-                                title="Histórico">
-                                <i class="fa fa-file-alt"></i>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
+              <thead>
+                <tr style="color:#555454">
+                  <th>Nome</th>
+                  <th>Telefone</th>
+                  <th>Membro</th>
+                  <th>Data Nascimento</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let pessoa of pessoas" [ngClass]="{ 'nao-membro': !pessoa.membro }">
+                  <td>{{ pessoa.nome }}</td>
+                  <td>{{ pessoa.fone }}</td>
+                  <td>{{ pessoa.membro ? 'Sim' : 'Não' }}</td>
+                  <td>{{ pessoa.dataNascimento }}</td>
+                  <td>
+                    <button class="btn btn-primary" [routerLink]="['/pessoa/form', pessoa.id]">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                    <button class="btn btn-danger ml-2" (click)="exibirModalDelet(pessoa)">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                    <button class="btn btn-custom-blue ml-2" (click)="carregarHistorico(pessoa.id)" title="Histórico">
+                      <i class="fa fa-file-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
             </table>
+          </div>
         </div>
-    </div>
+      </div>
+      
     <div id="modalDelecao" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">

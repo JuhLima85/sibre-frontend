@@ -71,5 +71,61 @@ font-weight: normal;
   color: #0051B4;
   letter-spacing: 0.5px;
 }
-  
+
+@media (max-width: 768px) {
+  ::ng-deep .sb-sidenav-credencial {
+    position: absolute !important;
+    right: 10px !important;
+    top: 12px !important;
+    font-size: 20px !important;
+    gap: 6px !important;
+    padding-right: 5px !important;
+  }
+
+  ::ng-deep .sb-sidenav-credencial .small {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+  }
+
+  ::ng-deep .brand-text {
+    font-size: 1.4rem !important;
+  }
+
+  ::ng-deep #sidebarToggle {
+    margin-left: 50px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .sb-topnav {
+    position: relative;
+  }
+
+  .sb-sidenav-credencial {
+    position: absolute !important;
+    right: 10px !important;
+    top: 10px !important;
+    font-size: 20px !important;
+    text-align: right !important;
+    gap: 4px !important;
+    padding-right: 8px !important;
+    z-index: 99;
+    background-color: #6caafc !important;
+  }
+
+  .sb-sidenav-credencial .small {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+  }
+
+  .brand-text {
+    font-size: 1.4rem !important;
+  }
+
+  #sidebarToggle {
+    margin-left: 50px !important;
+  }
+}
+
+
 
