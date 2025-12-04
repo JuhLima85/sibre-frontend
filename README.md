@@ -9,7 +9,7 @@
 npm install
 
 ## Iniciar o Servidor 
-ng serve
+npm start
 ````
 
 
