@@ -8,7 +8,7 @@ import { Pessoa } from '../model/Pessoa';
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class PessoaService {
   
   usuario: Usuario;  
@@ -27,6 +27,11 @@ export class PessoaService {
   listarTodas() : Observable<Pessoa[]> {   
     return this.http.get<Pessoa[]>(this.apiUrl);
   }
+
+  buscarPorNome(nome: string) {
+  return this.http.get<Pessoa[]>(`${this.apiUrl}/buscar`, { params: { nome } }
+  );
+}
  
   buscarPessoaPorId(id: number) : Observable<Pessoa> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
@@ -34,6 +39,6 @@ export class PessoaService {
 
   deletar(pessoa: Pessoa) : Observable<any> {
     return this.http.delete<Pessoa>(`${this.apiUrl}/${pessoa.id}`);
-  }  
+  } 
 }
  
