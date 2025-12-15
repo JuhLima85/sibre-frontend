@@ -19,7 +19,8 @@ export class PessoaListaComponent implements OnInit {
   pessoaSelecionada: Pessoa;
   mensagemSucesso: string;
   mensagemErro: string;  
-  
+  nomeBusca: string = '';
+    
   constructor(
     private service: PessoaService,    
     private relatorioService: RelatorioService,     
@@ -87,4 +88,16 @@ gerarRelatorio(tipo: string) {
 
   this.relatorioService.gerarRelatorioPessoas(pessoasFiltradas, tipo);
 }
+
+buscarPorNome(): void {
+  this.service.buscarPorNome(this.nomeBusca).subscribe({
+    next: (resposta) => {
+      this.pessoas = resposta;
+    },
+    error: () => {
+      this.mensagemErro = 'Erro ao buscar pessoas.';
+    }
+  });
 }
+}
+
