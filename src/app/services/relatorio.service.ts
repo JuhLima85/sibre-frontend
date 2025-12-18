@@ -83,7 +83,6 @@ export class RelatorioService {
       'Início Membresia',
       'Nome',
       'Telefone',
-      'E-mail',
       'Membro',
       'Data Nasc.',
       'Endereço'
@@ -94,7 +93,6 @@ export class RelatorioService {
       formatarData(p.dataInicioMembresia),
       p.nome,
       p.fone,
-      p.email || '-',
       p.membro ? 'Sim' : 'Não',
       formatarData(p.dataNascimento),
       (p.logradouro && p.localidade)
@@ -116,14 +114,13 @@ export class RelatorioService {
         fontStyle: 'bold'
       },
       columnStyles: {
-        0: { cellWidth: 30, halign: 'center' },
-        1: { cellWidth: 45 },
-        2: { cellWidth: 30, halign: 'center' },
-        3: { cellWidth: 50 },
-        4: { cellWidth: 20, halign: 'center' },
-        5: { cellWidth: 30, halign: 'center' },
-        6: { cellWidth: 75 }
-      },
+      0: { cellWidth: 30, halign: 'center' }, 
+      1: { cellWidth: 50 },                  
+      2: { cellWidth: 30, halign: 'center' },
+      3: { cellWidth: 22, halign: 'center' },
+      4: { cellWidth: 30, halign: 'center' },
+      5: { cellWidth: 90 }                   
+    },
       alternateRowStyles: { fillColor: [245, 245, 245] },
     });
 
