@@ -59,9 +59,13 @@
                 <button class="btn btn-primary" [routerLink]="['/pessoa/form', pessoa.id]">
                   <i class="fa fa-edit"></i>
                 </button>
-                <button class="btn btn-danger ml-2" (click)="exibirModalDelet(pessoa)">
+                <button class="btn btn-danger ml-2" 
+                 data-toggle="modal"
+                 data-target="#modalDelecao"
+                (click)="exibirModalDelet(pessoa)">
                   <i class="fa fa-trash"></i>
                 </button>
+                
                 <button class="btn btn-custom-blue ml-2" (click)="carregarHistorico(pessoa.id)" title="Histórico">
                   <i class="fa fa-file-alt"></i>
                 </button>

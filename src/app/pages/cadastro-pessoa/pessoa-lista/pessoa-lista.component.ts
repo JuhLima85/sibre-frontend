@@ -49,9 +49,9 @@ export class PessoaListaComponent implements OnInit {
     this.pessoaSelecionada = pessoa;
   }
 
-  deletarCadastro(){
+  deletarCadastro(){    
     this.service
-    .deletar(this.pessoaSelecionada)
+    .deletar(this.pessoaSelecionada.id)
     .subscribe(
       response => {
         this.mensagemSucesso = 'Cadastro deletado com sucesso!'
