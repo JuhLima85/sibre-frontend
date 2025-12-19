@@ -37,8 +37,8 @@ export class PessoaService {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }  
 
-  deletar(pessoa: Pessoa) : Observable<any> {
-    return this.http.delete<Pessoa>(`${this.apiUrl}/${pessoa.id}`);
-  } 
+  deletar(id: number): Observable<void> {
+  return this.http.delete<void>(`${this.apiUrl}/${id}`);
+}
 }
  
