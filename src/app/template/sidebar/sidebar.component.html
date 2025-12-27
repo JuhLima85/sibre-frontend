@@ -9,6 +9,7 @@
                     </div>
                     Home
                 </a>
+
                 <div class="sb-sidenav-menu-heading" style="color: #2f86e2;">Cadastro</div>
                 <a class="nav-link collapsed" routerLink="/pessoa/lista" data-toggle="collapse"
                     data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
@@ -16,6 +17,15 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-columns" style="color: #2f86e2;"></i></div>
                     Membros
                 </a>
+                
+                 <div class="sb-sidenav-menu-heading" style="color: #2f86e2;">Secretaria</div>
+                <a class="nav-link collapsed" routerLink="/secretaria/impressoes" style="color: #6e6e6e; cursor: pointer;">
+                    <div class="sb-nav-link-icon">
+                        <i class="fas fa-print" style="color: #2f86e2;"></i>
+                    </div>
+                    Arquivos Úteis
+                </a>
+
                 <div class="sb-sidenav-menu-heading" style="color: #2f86e2;">Usuários</div>
                 <a *ngIf="authService.hasRole('admin')" class="nav-link collapsed" routerLink="/usuario/form"
                     style="color: #6e6e6e;">
@@ -36,46 +46,7 @@
                         <i class="fas fa-key" style="color: #2f86e2;"></i>
                     </div>
                     Alterar Senha
-                </a>
-                <div class="sb-sidenav-menu-heading" style="color: #2f86e2;">Secretaria</div>
-
-                <a class="nav-link collapsed" (click)="baixarChamada()" style="color: #6e6e6e; cursor: pointer;">
-                    <div class="sb-nav-link-icon">
-                        <i class="fas fa-print" style="color: #2f86e2;"></i>
-                    </div>
-                    Lista de Presença
-                </a>
-
-                <a class="nav-link collapsed" (click)="baixarQrCode()" style="color: #6e6e6e; cursor: pointer;">
-                    <div class="sb-nav-link-icon">
-                        <i class="fas fa-print" style="color: #2f86e2;"></i>
-                    </div>
-                    QR Code - Pix
-                </a>
-
-                <a class="nav-link collapsed" (click)="baixarPlacaPreferencial()"
-                    style="color: #6e6e6e; cursor: pointer;">
-                    <div class="sb-nav-link-icon">
-                        <i class="fas fa-print" style="color: #2f86e2;"></i>
-                    </div>
-                    Placa Preferencial
-                </a>
-
-                <a class="nav-link collapsed" (click)="baixarRegimentoInterno()"
-                    style="color: #6e6e6e; cursor: pointer;">
-                    <div class="sb-nav-link-icon">
-                        <i class="fas fa-print" style="color: #2f86e2;"></i>
-                    </div>
-                    Regimento Interno
-                </a>
-
-                <a class="nav-link collapsed" (click)="baixarCertificadoMebro()"
-                    style="color: #6e6e6e; cursor: pointer;">
-                    <div class="sb-nav-link-icon">
-                        <i class="fas fa-print" style="color: #2f86e2;"></i>
-                    </div>
-                    Certificado Membro
-                </a>
+                </a>              
 
                 <div class="sb-sidenav-menu-heading" style="color: #2f86e2;">Logout</div>
                 <a class="nav-link collapsed" (click)="logout();" href="#" data-toggle="collapse"

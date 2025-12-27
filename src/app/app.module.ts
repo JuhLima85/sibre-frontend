@@ -20,6 +20,13 @@ import { HistoricosModule } from './pages/historicos/historicos.module';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializeKeycloak } from './shared/config/keycloak-init';
 import { UsuarioListComponent } from './pages/usuario/usuario-list/usuario-list.component';
+import { SecretariaComponent } from './pages/secretaria/secretaria.component';
+import { SecretariaRoutingModule } from './pages/secretaria/secretaria-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 //app.module.ts
 @NgModule({
@@ -28,7 +35,8 @@ import { UsuarioListComponent } from './pages/usuario/usuario-list/usuario-list.
     HomeComponent,
     UsuarioFormComponent,
     LayoutComponent,
-    UsuarioListComponent
+    UsuarioListComponent,
+    SecretariaComponent
   ],
   imports: [ 
     BrowserModule,
@@ -40,7 +48,12 @@ import { UsuarioListComponent } from './pages/usuario/usuario-list/usuario-list.
     UsuarioRoutingModule,
     UsuarioUpdateModule,
     HistoricosModule,
-    KeycloakAngularModule           
+    KeycloakAngularModule,
+    SecretariaRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule           
   ],
   providers: [    
     PessoaService,        
