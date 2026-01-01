@@ -32,4 +32,11 @@ export class SidebarComponent implements OnInit {
   hideSidebar(): void {
     this.isSidebarVisible = false;
 }
+
+closeSidebarOnMobile() {
+  const body = document.body; 
+  if (body.classList.contains('sb-sidenav-toggled')) {
+    body.classList.remove('sb-sidenav-toggled');
+  }
+}
 }

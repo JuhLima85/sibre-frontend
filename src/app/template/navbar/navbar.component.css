@@ -67,7 +67,7 @@ font-weight: normal;
   
 .brand-text {
   font-size: 1.7rem;
-  font-weight: bold;
+  font-weight: 700 !important;
   color: #0051B4;
   letter-spacing: 0.5px;
 }

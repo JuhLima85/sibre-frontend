@@ -3,7 +3,7 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading" style="color: #2f86e2;">Sistema</div>
-                <a class="nav-link" routerLink="/home" style="color: #6e6e6e;">
+                <a class="nav-link" routerLink="/home" (click)="closeSidebarOnMobile()" style="color: #6e6e6e;">
                     <div class="sb-nav-link-icon">
                         <i class="fas fa-tachometer-alt" style="color: #2f86e2;"></i>
                     </div>
@@ -11,15 +11,13 @@
                 </a>
 
                 <div class="sb-sidenav-menu-heading" style="color: #2f86e2;">Cadastro</div>
-                <a class="nav-link collapsed" routerLink="/pessoa/lista" data-toggle="collapse"
-                    data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
-                    style="color: #6e6e6e;">
+                <a class="nav-link" routerLink="/pessoa/lista" (click)="closeSidebarOnMobile()" style="color: #6e6e6e;">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns" style="color: #2f86e2;"></i></div>
                     Membros
                 </a>
                 
                  <div class="sb-sidenav-menu-heading" style="color: #2f86e2;">Secretaria</div>
-                <a class="nav-link collapsed" routerLink="/secretaria/impressoes" style="color: #6e6e6e; cursor: pointer;">
+                <a class="nav-link collapsed" routerLink="/secretaria/impressoes" (click)="closeSidebarOnMobile()" style="color: #6e6e6e; cursor: pointer;">
                     <div class="sb-nav-link-icon">
                         <i class="fas fa-print" style="color: #2f86e2;"></i>
                     </div>
@@ -27,21 +25,21 @@
                 </a>
 
                 <div class="sb-sidenav-menu-heading" style="color: #2f86e2;">Usuários</div>
-                <a *ngIf="authService.hasRole('admin')" class="nav-link collapsed" routerLink="/usuario/form"
+                <a *ngIf="authService.hasRole('admin')" class="nav-link collapsed" routerLink="/usuario/form" (click)="closeSidebarOnMobile()"
                     style="color: #6e6e6e;">
                     <div class="sb-nav-link-icon">
                         <i class="fas fa-user-plus" style="color: #2f86e2;"></i>
                     </div>
                     Cadastrar Usuário
                 </a>
-                <a *ngIf="authService.hasRole('admin', 'gestor')" class="nav-link collapsed" routerLink="/usuario/list"
+                <a *ngIf="authService.hasRole('admin', 'gestor')" class="nav-link collapsed" routerLink="/usuario/list" (click)="closeSidebarOnMobile()"
                     style="color: #6e6e6e;">
                     <div class="sb-nav-link-icon">
                         <i class="fas fa-users-cog" style="color: #2f86e2;"></i>
                     </div>
                     Gerenciar Acesso
                 </a>
-                <a class="nav-link collapsed" routerLink="/usuario/update" style="color: #6e6e6e;">
+                <a class="nav-link collapsed" routerLink="/usuario/update" (click)="closeSidebarOnMobile()" style="color: #6e6e6e;">
                     <div class="sb-nav-link-icon">
                         <i class="fas fa-key" style="color: #2f86e2;"></i>
                     </div>
