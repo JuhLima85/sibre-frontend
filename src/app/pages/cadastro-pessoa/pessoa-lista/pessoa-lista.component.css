@@ -6,7 +6,7 @@
   .btn-custom-blue:hover {
     background-color: #0bb3d4; 
     color: #fff; 
-  }
+  } 
 
 tbody tr.nao-membro {  
   background-color: rgba(178, 208, 247, 0.25); /* #b2d0f7 @25% */
@@ -27,8 +27,35 @@ tbody tr.nao-membro {
 
 .table thead th,
 .table tbody td {
-  vertical-align: middle;
-  text-align: left;
+ padding: 0.3rem 0.5rem;
+line-height: 1.1;
+  font-size: 0.9rem;     
+}
+
+.search-input {
+  width: 250px;
+  height: 30px;
+  margin-left: 11px !important;
+}
+
+.btn-table {
+  padding: 0.25rem 0.45rem;   
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.btn-table i {
+  font-size: 0.9rem;
+}
+
+.btn-action {
+  padding: 0.3rem 0.6rem;   
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.btn-action i {
+  font-size: 0.9rem;
 }
 
 /* Em telas menores, diminui um pouco o padding */
@@ -43,8 +70,41 @@ tbody tr.nao-membro {
     font-size: 0.85rem;
     padding: 0.25rem 0.5rem;
   }
+  .action-bar {
+    flex-wrap: wrap;    
+    gap: 8px;
+  }
+
+  .action-bar .btn {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+    line-height: 1.2;
+  }
+
+  .action-bar .btn i {
+    font-size: 0.85rem;
+  }
+
+  .action-bar .search-input {
+    width: 240px  !important;
+    height: 32px;        
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+    margin-left: 0 !important;
+  }
+    
+  .action-bar .ml-2,
+  .action-bar .ml-3 {
+    margin-left: 0.5rem !important;
+  }
 }
-
-
-
-  
+   
+ @media (max-width: 420px) {
+  .action-bar .search-input {
+    width: 150px;
+  }
+  .action-bar .btn {
+    font-size: 0.8rem;
+    padding: 0.22rem 0.45rem;
+  }
+}

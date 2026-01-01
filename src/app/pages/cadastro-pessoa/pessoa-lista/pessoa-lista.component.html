@@ -14,9 +14,9 @@
     </div>
   </div>
   <div class="row mb-3">
-    <div class="col-md-12 d-flex align-items-center">
+    <div class="col-md-12 d-flex align-items-center action-bar">
 
-      <button class="btn" [ngClass]="{
+      <button class="btn btn-action" [ngClass]="{
                 'btn-success': authService.hasRole('admin', 'gestor'),
                 'btn-secondary': !authService.hasRole('admin', 'gestor')
             }" [disabled]="!authService.hasRole('admin', 'gestor')" routerLink="/pessoa/form">
@@ -27,10 +27,10 @@
         Novo Cadastro
       </button>
 
-      <button *ngIf="pessoas && pessoas.length > 0" class="btn btn-primary ml-2" (click)="abrirModal()">
+      <button *ngIf="pessoas && pessoas.length > 0" class="btn btn-primary btn-action ml-2" (click)="abrirModal()">
         <i class="fa fa-file-pdf"></i> Gerar Relatório
       </button>
-      <input type="text" class="form-control ml-3" style="width: 250px;" placeholder="Buscar por nome"
+      <input type="text" class="form-control search-input"  placeholder="Buscar por nome"
         [(ngModel)]="nomeBusca" (keyup)="buscarPorNome()" />
 
     </div>
@@ -56,17 +56,17 @@
               <td>{{ pessoa.membro ? 'Sim' : 'Não' }}</td>
               <td>{{ pessoa.dataNascimento }}</td>
               <td>
-                <button class="btn btn-primary" [routerLink]="['/pessoa/form', pessoa.id]">
+                <button class="btn btn-primary btn-table" [routerLink]="['/pessoa/form', pessoa.id]">
                   <i class="fa fa-edit"></i>
                 </button>
-                <button class="btn btn-danger ml-2" 
+                <button class="btn btn-danger btn-table ml-2" 
                  data-toggle="modal"
                  data-target="#modalDelecao"
                 (click)="exibirModalDelet(pessoa)">
                   <i class="fa fa-trash"></i>
                 </button>
                 
-                <button class="btn btn-custom-blue ml-2" (click)="carregarHistorico(pessoa.id)" title="Histórico">
+                <button class="btn btn-custom-blue btn-table ml-2" (click)="carregarHistorico(pessoa.id)" title="Histórico">
                   <i class="fa fa-file-alt"></i>
                 </button>
               </td>
